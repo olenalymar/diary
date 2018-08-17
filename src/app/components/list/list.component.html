@@ -1,0 +1,57 @@
+<mat-form-field class="example-full-width">
+  <input (keyup)="searchEvents()" matInput placeholder="Search" value="" type="search" name="search" [(ngModel)]="search">
+</mat-form-field>
+<h3>Sort by:</h3>
+<div class="sort">
+  <mat-form-field>
+    <mat-select placeholder="Attitude to events" [(ngModel)]="attitude" (ngModelChange)="sortByAttitude()">
+      <mat-option value="bad-good">From bad to good</mat-option>
+      <mat-option value="good-bad">From good to bad</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-select placeholder="Date" [(ngModel)]="date" (ngModelChange)="sortByDate()">
+      <mat-option value="ascending">Ascending</mat-option>
+      <mat-option value="descendingly">Descendingly</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<mat-card *ngIf="searchResults" class="search-results">
+  <mat-card-title>Search Results</mat-card-title>
+  <p *ngIf="searchResults.length == 0">Nothing found</p>
+  <mat-list class="events-list">
+    <mat-list-item *ngFor="let result of searchResults" class="events-item">
+      <span class="event-name-span">
+        <a class="event-name" routerLink="/event/{{result.id}}">{{ result.name }}</a>
+      </span>
+      <!-- <span class="event-desc-span"> {{ result.description }}</span> -->
+      <span class="event-date-span"> {{ result.date | date }}</span>
+      <button (click)="onSelect(event)" mat-mini-fab color="primary" routerLink="/add">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button (click)="onDelete(event)" mat-mini-fab color="warn">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-list-item>
+  </mat-list>
+</mat-card>
+<mat-card *ngIf="loaded && events.length > 0">
+  <mat-list class="events-list">
+    <mat-list-item *ngFor="let event of events" class="events-item">
+      <span class="event-name-span">
+        <a class="event-name" routerLink="/event/{{event.id}}">{{ event.name }}</a>
+      </span>
+      <!-- <span class="event-desc-span"> {{ event.description }}</span> -->
+      <span class="event-date-span"> {{ event.date | date }}</span>
+      <button (click)="onSelect(event)" mat-mini-fab color="primary" routerLink="/add">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button (click)="onDelete(event)" mat-mini-fab color="warn">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-list-item>
+  </mat-list>
+</mat-card>
+<mat-card *ngIf="loaded && events.length == 0">
+  <h5>There are no any entries here yet...</h5>
+</mat-card>

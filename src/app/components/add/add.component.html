@@ -1,0 +1,36 @@
+<form action="" (ngSubmit)="onSubmit()">
+  <mat-form-field>
+    <input [(ngModel)]="name" matInput placeholder="Event name" value="" type="text" name="event-name" minlength="2" required>
+  </mat-form-field>
+  <mat-form-field>
+    <input [(ngModel)]="date" matInput [matDatepicker]="picker" placeholder="Choose a date" name="event-date" required>
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field>
+    <input [(ngModel)]="photosLink" matInput placeholder="Photos link" value="" type="text" name="photos-link">
+  </mat-form-field>
+  <mat-form-field>
+    <textarea [(ngModel)]="description" matInput placeholder="Description" name="event-description"></textarea>
+  </mat-form-field>
+  <p class="text-center">Attitude to this event</p>
+  <mat-radio-group class="event-attitude" name="attitude-group" [(ngModel)]="attitude">
+    <mat-radio-button value="positive" name="attitude">Positive</mat-radio-button>
+    <mat-radio-button value="neutral" name="attitude">Neutral</mat-radio-button>
+    <mat-radio-button value="negative" name="attitude">Negative</mat-radio-button>
+  </mat-radio-group>
+  <div class="push-down"></div>
+  <mat-form-field>
+    <input matInput name="search-place" placeholder="Search for location (or click on the map)" autocorrect="off" autocapitalize="off"
+      spellcheck="off" type="text" class="form-control" #search [formControl]="searchControl">
+  </mat-form-field>
+  <agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="false" [zoomControl]="false" (mapClick)="mapClicked($event)">
+    <agm-marker *ngIf="marker.lat" (markerClick)="clickedMarker()" [latitude]="marker.lat" [longitude]="marker.lng" [markerDraggable]="draggable">
+    </agm-marker>
+  </agm-map>
+  <div class="buttons">
+    <button [disabled]="name == '' || date == ''" mat-flat-button class="add-user">Add event</button>
+    <button (click)="clearState()" type="button" mat-flat-button [hidden]="!this.name">Clear</button>
+  </div>
+
+</form>

@@ -1,0 +1,102 @@
+mat-form-field {
+  display: block;
+}
+
+.sort {
+  display: flex;
+  justify-content: space-between;
+}
+
+.sort mat-form-field {
+  width: 49%;
+}
+
+form {
+  padding: 30px auto;
+}
+
+mat-list-item span {
+  display: block;
+  padding: 5px;
+}
+
+.event-name-span {
+  width: 55%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #ac547c;
+}
+
+/* .event-desc-span {
+  width: 40%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+} */
+
+.event-date-span {
+  width: 30%;
+  min-width: 97px;
+  color: #888;
+  margin-right: 10px;
+}
+
+.mat-card-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+mat-list-item button {
+  margin: 0 0 0 5px;
+  transition: opacity 0.4s;
+}
+
+mat-list-item button:hover {
+  opacity: 0.7;
+}
+
+mat-list-item {
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+mat-list-item:last-child {
+  border: none;
+}
+
+.match {
+  background-color: yellow;
+}
+
+.event-name {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.2s;
+}
+
+.event-name:hover {
+  color: #f39cd2;
+}
+
+mat-card {
+  background-color: #fffeee;
+}
+
+.search-results {
+  background-color: rgb(192, 255, 211);
+  margin-bottom: 20px;
+}
+
+h3 {
+  color: #d1a52b;
+}
+
+@media only screen and (max-width: 480px) {
+  .mat-list-item-content {
+    display: block;
+  }
+
+  .mat-list-item .event-date-span {
+    display: none;
+  }
+}

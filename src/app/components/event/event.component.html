@@ -1,0 +1,17 @@
+<mat-card>
+  <mat-card-title>{{ event.name }}</mat-card-title>
+  <mat-card-subtitle>{{ event.date | date }}</mat-card-subtitle>
+  <mat-card-content>
+    <p>{{ event.description }}</p>
+    <p *ngIf="event.photosLink"> Photo:
+      <a [href]="event.photosLink" target="_blank">{{ event.photosLink }}</a>
+    </p>
+    <p>Attitude to the event:
+      <span>{{ event.attitude }}</span>
+    </p>
+    <agm-map *ngIf="event.marker.lat" [latitude]="event.marker.lat" [longitude]="event.marker.lng">
+      <agm-marker [latitude]="event.marker.lat" [longitude]="event.marker.lng">
+      </agm-marker>
+    </agm-map>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,31 @@
+.mat-card-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+mat-card-actions button {
+  margin: 0 5px;
+  transition: opacity 0.4s;
+}
+
+mat-card-actions button:hover {
+  opacity: 0.7;
+}
+
+mat-card-title {
+  color: #ac547c;
+}
+
+mat-card-content span {
+  color: #d1a52b;
+}
+
+mat-card-content a {
+  color: #5a992f;
+}
+
+agm-map {
+  height: 200px;
+}
+p {
+  line-height: 1.5;
+}

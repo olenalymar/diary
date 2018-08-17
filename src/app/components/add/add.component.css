@@ -1,0 +1,60 @@
+mat-form-field {
+  display: block;
+}
+
+mat-radio-button {
+  margin-right: 25px;
+}
+
+.event-attitude {
+  padding-bottom: 30px;
+}
+
+.add-map {
+  margin-top: 50px;
+}
+
+.add-user {
+  background-color: #ac547c;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.buttons button {
+  margin: 30px 10px;
+}
+
+.push-down {
+  height: 40px;
+}
+
+.mat-radio-group {
+  display: flex;
+  justify-content: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+agm-map {
+  height: 300px;
+}
+
+@media only screen and (max-width: 480px) {
+  mat-radio-button {
+    margin-right: 9px;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .mat-radio-group {
+    flex-direction: column;
+  }
+  .mat-radio-button {
+    margin: 7px 20px;
+  }
+}

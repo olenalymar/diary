@@ -1,0 +1,18 @@
+agm-map {
+  height: 450px;
+}
+
+/* animation markers */
+.gmnoprint img {
+  animation-name: shade;
+  animation-duration: 10s;
+}
+
+@keyframes shade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
